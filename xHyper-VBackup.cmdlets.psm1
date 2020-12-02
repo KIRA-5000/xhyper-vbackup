@@ -82,7 +82,7 @@ function Convert-VmBackupCheckpoint
     $Msvm_VirtualSystemSnapshotService = Get-WmiObject -Namespace root\virtualization\v2 -Class Msvm_VirtualSystemSnapshotService
 
     # Convert the snapshot to a reference point, this function returns a job object.
-    $job = $Msvm_VirtualSystemSnapshotService.ConvertToReferencePoint($BackupCheckpoint)
+    $job = $Msvm_VirtualSystemSnapshotService.ConvertToReferencePoint($BackupSheckpoint)
 
     # Wait for the job to complete.
     ($job | ProcessWMIJob -WmiClass $Msvm_VirtualSystemSnapshotService -MethodName "ConvertToReferencePoint") | Out-Null
